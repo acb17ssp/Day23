@@ -6,10 +6,28 @@ public class EmployeeWageComputation {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
+    private final String companyName;
+    private final int empRate;
+    private final int numberOfWorkingDays;
+    private final int numberOfWorkingHours;
+
+    /**
+     * @param companyName - name of the company
+     * @param empRate - rate of the employee per hr
+     * @param numberOfWorkingDays - total number of working days
+     * @param numberOfWorkingHours - total number of working hours
+     */
+    public EmployeeWageComputation(String companyName, int empRate, int numberOfWorkingDays, int numberOfWorkingHours) {
+        this.companyName = companyName;
+        this.empRate = empRate;
+        this.numberOfWorkingDays = numberOfWorkingDays;
+        this.numberOfWorkingHours = numberOfWorkingHours;
+    }
+
     /**
      * This is a void method used to calculate the salary of the employee
      */
-    public static void computeWages(String companyName, int empRate, int numberOfWorkingDays, int numberOfWorkingHours){
+    public void computeWages(){
 
         // Variables
         int empHours = 0;
@@ -46,14 +64,14 @@ public class EmployeeWageComputation {
     }
 
     /**
-     * The main method only calls the computeWages method declared above
+     * The main method now calls the contructor with the parameters declared above and the method computeWages
      * @param args - main method
      */
     public static void main(String[] args) {
         System.out.println("Welcome Employee" + "\n");
-
-        // calling the method from above with the parameters declared
-        computeWages("Company-A", 20, 5, 10);
-        computeWages("Company-B", 25, 10, 20);
+        EmployeeWageComputation companyA = new EmployeeWageComputation("Company-A", 20, 5, 10);
+        EmployeeWageComputation companyB = new EmployeeWageComputation("Company-B", 25, 10, 15);
+        companyA.computeWages();
+        companyB.computeWages();
     }
 }
