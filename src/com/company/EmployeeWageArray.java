@@ -48,6 +48,8 @@ public class EmployeeWageArray implements EmpWageBuilder {
         int empHours = 0;
         int totalHrs = 0;
         int totalDays = 0;
+        int salary;
+        ArrayList<Integer> salaryArrayList = new ArrayList<>();
 
         // loop condition to check if the total days are matching number of working days/hours and eventually calculate salary
         while (totalDays <= computeEmployeeWage.numberOfWorkingDays || totalHrs <= computeEmployeeWage.numberOfWorkingHours){
@@ -70,7 +72,9 @@ public class EmployeeWageArray implements EmpWageBuilder {
 
             // calculation of salary and hours
             totalHrs+=empHours;
-            System.out.println("Day: " + totalDays + ", Emp Hr: " + empHours);
+            salary=empHours*computeEmployeeWage.empRate;
+            salaryArrayList.add(salary);
+            System.out.println("Day: " + totalDays + ", Emp Hr: " + empHours + ", Salary per day: " + salary);
         }
         return totalHrs*computeEmployeeWage.empRate;
     }
