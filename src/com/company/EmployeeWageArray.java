@@ -1,21 +1,36 @@
 package com.company;
 
 public class EmployeeWageArray implements EmpWageBuilder {
+
     // Constants
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
     private int numOfCompnaies = 0;
     private ComputeEmployeeWage[] computeEmployeeWage;
 
+    /**
+     * Constructor - setting the size of array
+     */
     public EmployeeWageArray(){
         computeEmployeeWage = new ComputeEmployeeWage[5];
     }
 
+    /**
+     * This method adds the number of companies into an array
+     *
+     * @param companyName - name of company
+     * @param empRate - rate per hr
+     * @param numberOfWorkingDays - number of working days
+     * @param numberOfWorkingHours - number of working hours
+     */
     public void addCompanyToArray(String companyName, int empRate, int numberOfWorkingDays, int numberOfWorkingHours){
         computeEmployeeWage[numOfCompnaies] = new ComputeEmployeeWage(companyName, empRate, numberOfWorkingDays, numberOfWorkingHours);
         numOfCompnaies++;
     }
 
+    /**
+     * This method sets the total wage of the employee
+     */
     public void computeEmpWage(){
         for (int i = 0; i<numOfCompnaies;i++){
             computeEmployeeWage[i].setTotalWage(computeEmpWagesForACompany(computeEmployeeWage[i]));
