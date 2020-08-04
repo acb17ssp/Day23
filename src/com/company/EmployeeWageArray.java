@@ -7,7 +7,6 @@ public class EmployeeWageArray implements EmpWageBuilder {
     // Constants
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
-    private int numOfCompnaies = 0;
     private final ArrayList<ComputeEmployeeWage> computeEmployeeWageArrayList;
 
     /**
@@ -28,14 +27,13 @@ public class EmployeeWageArray implements EmpWageBuilder {
     public void addCompanyToArray(String companyName, int empRate, int numberOfWorkingDays, int numberOfWorkingHours){
         ComputeEmployeeWage computeEmployeeWage = new ComputeEmployeeWage(companyName, empRate, numberOfWorkingDays, numberOfWorkingHours);
         computeEmployeeWageArrayList.add(computeEmployeeWage);
-        numOfCompnaies++;
     }
 
     /**
      * This method sets the total wage of the employee
      */
     public void computeEmpWage(){
-        for (int i = 0; i<numOfCompnaies;i++){
+        for (int i = 0; i<computeEmployeeWageArrayList.size();i++){
             computeEmployeeWageArrayList.get(i).setTotalWage(computeEmpWagesForACompany(computeEmployeeWageArrayList.get(i)));
             System.out.println(computeEmployeeWageArrayList.get(i));
         }
