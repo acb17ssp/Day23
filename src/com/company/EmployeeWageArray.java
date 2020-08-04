@@ -40,6 +40,15 @@ public class EmployeeWageArray implements EmpWageBuilder {
     }
 
     /**
+     * This method is used to get the total wage of each company
+     * @param index - index in the array list
+     * @return - getting the index of the arrayList which has the salary in it
+     */
+    public int getTotalWage(Integer index){
+        return computeEmployeeWageArrayList.get(index).totalWage;
+    }
+
+    /**
      * This is a void method used to calculate the salary of the employee
      */
     public int computeEmpWagesForACompany(ComputeEmployeeWage computeEmployeeWage){

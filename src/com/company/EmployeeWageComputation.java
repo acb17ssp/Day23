@@ -12,5 +12,8 @@ public class EmployeeWageComputation {
         employeeWageArray.addCompanyToArray("D-Mart", 10, 10,10);
         employeeWageArray.addCompanyToArray("Reliance", 20, 20,20);
         employeeWageArray.computeEmpWage();
+        System.out.println();
+        System.out.println(employeeWageArray.getTotalWage(0));
+        System.out.println(employeeWageArray.getTotalWage(1));
     }
 }
